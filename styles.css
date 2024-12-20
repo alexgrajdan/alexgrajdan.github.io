@@ -50,6 +50,10 @@ section {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
+#milestones ul {
+    list-style-type: none;
+}
+
 a {
     color: var(--color-accent);
     text-decoration: none;
