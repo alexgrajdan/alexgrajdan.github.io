@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
         
     <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
         
     <!--==================== CSS ====================-->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#milestones" class="nav__link">
+                        <a href="#portfolio" class="nav__link">
                             <i class="uil uil-check-circle nav__icon"></i> Milestones
                         </a>
                     </li>
@@ -614,7 +614,60 @@
 
         <!--==================== PORTFOLIO ====================-->
         <section class="portfolio section" id="portfolio">
-            
+            <h2 class="section__title">Future Portfolio</h2>
+            <span class="section__subtitle">Milestones projects</span>
+
+            <div class="portfolio__container container swiper swiper-container">
+                <div class="swiper-wrapper">
+                    <!--==================== PORTFOLIO CONTENT 1 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio1.jpg" alt="" class="portfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Project 1</h3>
+                            <p class="portfolio__description">Develop a professional portfolio website</p>
+                            <a href="#" class="button button--flex button--small portfolio__button">
+                                View More <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--==================== PORTFOLIO CONTENT 2 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio2.jpg" alt="" class="portfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Project 2</h3>
+                            <p class="portfolio__description">Develop a Proxmox Homelab Environment</p>
+                            <a href="#" class="button button--flex button--small portfolio__button">
+                                View More <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--==================== PORTFOLIO CONTENT 3 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio3.jpg" alt="" class="portfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Project 3</h3>
+                            <p class="portfolio__description">Develop a project hosted on Cloud</p>
+                            <a href="#" class="button button--flex button--small portfolio__button">
+                                View More <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--==================== SWIPER BUTTONS ====================-->
+                <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                </div>
+
+                <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                </div>
+
+                <!--==================== SWIPER PAGINATION ====================-->
+                <!-- <div class="swiper-pagination"></div> TO BE FIXED -->
+            </div>
         </section>
 
         <!--==================== PROJECT IN MIND ====================-->
@@ -642,7 +695,7 @@
       
 
       <!--==================== SWIPER JS ====================-->
-      <script src=""></script>
+      <script src="assets/js/swiper-bundle.min.js"></script>
 
       <!--==================== MAIN JS ====================-->
       <script src="assets/js/main.js"></script>
