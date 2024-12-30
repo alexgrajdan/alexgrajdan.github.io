@@ -688,19 +688,104 @@
         </section>
 
         <!--==================== TESTIMONIAL ====================-->
-        <section class="testimonial section">
-            
-        </section>
+        <!-- <section class="testimonial section"></section> TBD -->
 
         <!--==================== CONTACT ME ====================-->
         <section class="contact section" id="contact">
+            <h2 class="section__title">Contact Me</h2>
+            <span class="section__subtitle">Get in touch</span>
 
+                <div class="contact__container container grid">
+                    <div>
+                        <div class="contact__information">
+                            <i class="uil uil-envelope contact__icon"></i>
+                            <div>
+                                <h3 class="contact__title">Email</h3>
+                                <span class="contact__subtitle">test@email.com</span>
+                            </div>
+                        </div>
+
+                        <div class="contact__information">
+                            <i class="uil uil-map-marker contact__icon"></i>
+                            <div>
+                                <h3 class="contact__title">Location</h3>
+                                <span class="contact__subtitle">Bucharest</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="" class="contact__form grid">
+                        <div class="contact__inputs grid">
+                            <div class="contact__content">
+                                <label for="name" class="contact__label">Name</label>
+                                <input type="text" class="contact__input" id="name">
+                            </div>
+
+                            <div class="contact__content">
+                                <label for="email" class="contact__label">Email</label>
+                                <input type="email" class="contact__input" id="email">
+                            </div>
+                        </div>
+
+                        <div class="contact__content">
+                            <label for="subject" class="contact__label">Subject</label>
+                            <input type="text" class="contact__input" id="subject">
+                        </div>
+
+                        <div class="contact__content">
+                            <label for="message" class="contact__label">Message</label>
+                            <textarea name="" id="message" cols="0" rows="7" class="contact__input"></textarea>
+                        </div>
+
+                        <div>
+                            <a href="#" class="button button--flex">
+                                Send Message <i class="uil uil-message button__icon"></i>
+                            </a>
+                        </div>
+                    </form>
+                </div>
         </section>
     </main>
     
       <!--==================== FOOTER ====================-->
       <footer class="footer">
-         
+         <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h1 class="footer__title">Alex</h1>
+                    <span class="footer__subtitle">Site Reliability Engineer</span>
+                </div>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#home" class="footer__link">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="footer__link">About</a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="footer__link">Skills</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="footer__link">Milestones</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="footer__link">Contact Me</a>
+                    </li>   
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.linkedin.com/" target="_blank" class="footer__social">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <a href="https://www.github.com/" target="_blank" class="footer__social">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; Alex Grăjdan. All rights reserved</p>
+        </div>
       </footer>
       
       <!--==================== SCROLL TOP ====================-->

@@ -98,8 +98,6 @@ modalCloses.forEach((modalClose) =>{
 
 /*==================== PORTFOLIO SWIPER  ====================*/
 
-/*TO BE FIXED https://swiperjs.com/demos#css-mode*/
-
 let swiper = new Swiper('.portfolio__container', {
     cssMode: true,
     loop: true,
@@ -115,7 +113,7 @@ let swiper = new Swiper('.portfolio__container', {
 });
 
 /*==================== TESTIMONIAL ====================*/
-
+/* TBD */
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 
