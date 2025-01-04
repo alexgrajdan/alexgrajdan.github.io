@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--==================== GOOGLE reCAPTCHA ====================-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="assets/js/form.js"></script>
     
     <!--==================== FAVICON ====================-->
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
@@ -741,14 +745,14 @@
 
                         <div class="contact__content">
                             <label for="message" class="contact__label">Message</label>
-                            <textarea name="" id="message" cols="0" rows="7" class="contact__input" name="message" required></textarea>
+                            <textarea type="text" class="contact__input" cols="0" rows="7" id="message" name="message" required></textarea>
                         </div>
 
                         <!-- Anti-spam honeypot field -->
                         <input type="text" name="_gotcha" style="display:none">
 
                         <!-- reCAPTCHA -->
-                        <div class="g-recaptcha" data-sitekey="6LcJO64qAAAAACorIkt1BMUxV9D2uFa1qRB0kdXv"></div>
+                        <div class="g-recaptcha" data-sitekey="6Ld_Sa4qAAAAAGmrFQcZBhn1cNHgV0GqgwPVKxqq"></div>
 
                         <div>
                             <button type="submit" class="button button--flex" data-callback='onSubmit' data-action='submit'>
@@ -805,11 +809,7 @@
       <a href="#" class="scrollup" id="scroll-up">
             <i class="uil uil-arrow-up scrollup__icon"></i>
       </a>
-
-      <!--==================== GOOGLE reCAPTCHA ====================-->
-      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-      <script src="assets/js/form.js"></script>
-
+      
       <!--==================== SWIPER JS ====================-->
       <script src="assets/js/swiper-bundle.min.js"></script>
 
