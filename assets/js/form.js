@@ -5,7 +5,7 @@ function validateForm() {
     var subject = document.getElementById("subject").value;
     var message = document.getElementById("message").value;
     
-    if (name == "" || email == "" || subject == "" || message == "") {
+    if (name.trim() === "" || email.trim() === "" || subject.trim() === "" || message.trim() === "") {
         alert("All fields must be filled out");
         return false;
     }
