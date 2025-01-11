@@ -27,6 +27,29 @@ This is my portfolio website showcasing my skills, projects, and experience as a
 ```
 3. Open `index.html` in your preferred web browser to view the website.
 
+## CI/CD Pipeline
+
+This project uses GitHub Actions for continuous integration and deployment. The pipeline is defined in [.github/workflows/deploy.yml](.github/workflows/deploy.yml) and includes:
+
+### Automated Checks
+- HTML validation using `tidy`
+- CSS validation using `stylelint`
+- Commit signature verification
+
+### Deployment
+The website is automatically deployed to GitHub Pages when:
+- Changes are pushed to the `main` branch
+- Pull requests are merged into `main`
+
+### Workflow Steps
+1. Code checkout
+2. HTML and CSS validation
+3. Deployment to GitHub Pages
+
+To view the deployment status, check the "Actions" tab in the GitHub repository.
+
+Note: Only signed commits following the [security policy](SECURITY.md) will trigger deployments.
+
 ## Usage Instructions
 - **Navigation**: Use the navigation menu to explore different sections of the website.
 - **Contact Form**: Fill out the contact form to send me a message. Ensure all fields are filled out and reCAPTCHA is completed.
