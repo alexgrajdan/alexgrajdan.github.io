@@ -10,9 +10,16 @@ on:
 
 jobs:
   validate-and-deploy:
-    # Job runs on latest Ubuntu runner
+    # This job runs on Ubuntu latest version for optimal compatibility
     runs-on: ubuntu-latest
-    # Required permissions for creating/managing PRs and writing to repository
+    
+    # Only execute when triggered from a branch (not tag or direct commit)
+    # This prevents deployment issues on non-branch events
+    if: github.ref_type == 'branch'
+    
+    # GitHub token permissions required for:
+    # - contents:write -> Modify repository contents
+    # - pull-requests:write -> Create and manage PRs
     permissions:
       contents: write
       pull-requests: write
