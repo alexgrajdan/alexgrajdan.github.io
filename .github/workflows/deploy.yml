@@ -47,10 +47,12 @@ jobs:
       # Step 3a: Create automated PR for deployment
       # Uses peter-evans/create-pull-request action to create PR with changes
       - name: Create Pull Request
+        id: create-pr
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: deploy-changes
+          base: main
           title: Deploy updates
           body: "This PR contains the latest updates for deployment."
           commit-message: "Deploy updates 🚀"
@@ -58,6 +60,7 @@ jobs:
       # Step 3b: Automatically approve the created PR
       # Required for automated deployment process
       - name: Auto-approve PR
+        if: steps.create-pr.outputs.pull-request-number
         uses: hmarr/auto-approve-action@v3
         with:
           pull-request-number: ${{ steps.create-pr.outputs.pull-request-number }}
@@ -66,6 +69,7 @@ jobs:
       # Step 3c: Enable and trigger auto-merge
       # Uses GitHub CLI to enable auto-merge on the PR
       - name: Enable Auto-merge
+        if: steps.create-pr.outputs.pull-request-number
         run: |
           gh pr merge --auto --merge "${{ steps.create-pr.outputs.pull-request-number }}"
         env:
