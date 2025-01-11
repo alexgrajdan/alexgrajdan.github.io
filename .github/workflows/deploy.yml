@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Validate HTML and CSS 
+      # 2. Validate HTML și CSS 
       - name: Validate HTML
         run: |
           sudo apt-get install tidy
@@ -29,21 +29,7 @@ jobs:
             npx stylelint $file || true
           done
 
-      # 3. Set up Node.js environment 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      # 4. Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # 5. Build project
-      - name: Build project
-        run: npm run build
-
-      # 6. Deploy to GitHub Pages 
+      # 3. Deploy to GitHub Pages 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
