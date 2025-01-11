@@ -57,17 +57,9 @@ jobs:
           body: "This PR contains the latest updates for deployment."
           commit-message: "Deploy updates 🚀"
 
-      # Step 3b: Automatically approve the created PR
-      # Required for automated deployment process
-      - name: Auto-approve PR
-        if: steps.create-pr.outputs.pull-request-number
-        uses: hmarr/auto-approve-action@v3
-        with:
-          pull-request-number: ${{ steps.create-pr.outputs.pull-request-number }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Step 3c: Enable and trigger auto-merge
+      # Step 3b: Enable and trigger auto-merge
       # Uses GitHub CLI to enable auto-merge on the PR
+      # Merges PR automatically if all checks pass and manual approval is given
       - name: Enable Auto-merge
         if: steps.create-pr.outputs.pull-request-number
         run: |
