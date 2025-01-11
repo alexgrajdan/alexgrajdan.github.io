@@ -10,28 +10,56 @@ on:
 
 jobs:
   validate-and-deploy:
+    # Job runs on latest Ubuntu runner
     runs-on: ubuntu-latest
+    # Required permissions for creating/managing PRs and writing to repository
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
-      # 1. Checkout repository
+      # Step 1: Get the latest code from repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Validate HTML și CSS 
+      # Step 2a: HTML Validation
+      # Uses tidy to check HTML syntax and formatting
       - name: Validate HTML
         run: |
           sudo apt-get install tidy
           tidy -q -e **/*.html || true
 
+      # Step 2b: CSS Validation
+      # Uses stylelint to validate all CSS files in repository
       - name: Validate CSS
         run: |
           for file in $(find . -name "*.css"); do
             npx stylelint $file || true
           done
 
-      # 3. Deploy to GitHub Pages 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      # Step 3a: Create automated PR for deployment
+      # Uses peter-evans/create-pull-request action to create PR with changes
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
         with:
-          branch: main
-          folder: .  
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: deploy-changes
+          title: Deploy updates
+          body: "This PR contains the latest updates for deployment."
+          commit-message: "Deploy updates 🚀"
+
+      # Step 3b: Automatically approve the created PR
+      # Required for automated deployment process
+      - name: Auto-approve PR
+        uses: hmarr/auto-approve-action@v3
+        with:
+          pull-request-number: ${{ steps.create-pr.outputs.pull-request-number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Step 3c: Enable and trigger auto-merge
+      # Uses GitHub CLI to enable auto-merge on the PR
+      - name: Enable Auto-merge
+        run: |
+          gh pr merge --auto --merge "${{ steps.create-pr.outputs.pull-request-number }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
