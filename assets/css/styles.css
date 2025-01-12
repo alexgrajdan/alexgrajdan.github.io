@@ -872,6 +872,7 @@ img {
   background-color: var(--input-color);
   border-radius: .5rem;
   padding: .75rem 1rem .25rem;
+  position: relative;
 }
 
 .contact__label {
@@ -903,10 +904,6 @@ img {
 
 .g-recaptcha.input-error {
   margin-bottom: 1.5rem;
-}
-
-.contact__content {
-  position: relative;
 }
 
 .g-recaptcha {
@@ -946,6 +943,13 @@ img {
   row-gap: 1.5rem;
 }
 
+.footer__title,
+.footer__subtitle,
+.footer__link,
+.footer__social {
+  color: #fff;
+}
+
 .footer__link:hover {
   color: var(--first-color-lighter);
 }
@@ -964,13 +968,6 @@ img {
   text-align: center;
   color: var(--text-color);
   margin-top: var(--mb-3);
-}
-
-.footer__title,
-.footer__subtitle,
-.footer__link,
-.footer__social {
-  color: #fff;
 }
 
 /*========== SCROLL UP ==========*/

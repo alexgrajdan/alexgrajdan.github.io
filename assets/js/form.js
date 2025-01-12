@@ -1,5 +1,7 @@
 /*==================== FORM VALIDATION ====================*/
-function validateForm() {
+function validateForm(event) {
+    event.preventDefault(); // Prevent the default form submission
+
     var name = document.getElementById("name");
     var email = document.getElementById("email");
     var subject = document.getElementById("subject");
@@ -37,9 +39,11 @@ function validateForm() {
       isValid = false;
     }
   
+    console.log('Form is valid');
     return isValid;
   }
-  
+
+    
   function showError(element, message) {
     const errorSpan = document.createElement('span');
     errorSpan.className = 'error-message';
