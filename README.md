@@ -51,7 +51,7 @@ The website is automatically deployed to GitHub Pages when:
 
 To view the deployment status, check the "Actions" tab in the GitHub repository.
 
-Note: Only signed commits following the [security policy](SECURITY.md) will trigger deployments.
+*Note: Only signed commits following the [security policy](SECURITY.md) will trigger deployments.*
 
 ## Usage Instructions
 - **Navigation**: Use the navigation menu to explore different sections of the website.

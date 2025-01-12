@@ -17,36 +17,39 @@ jobs:
 
     steps:
       # Step 1: Checkout the repository
+      # This step checks out the repository code to the runner
       - name: Checkout repository
         uses: actions/checkout@v3
 
       # Step 2a: Set up Node.js environment
+      # This step sets up the Node.js environment with the specified version
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
       # Step 2b: Install dependencies
+      # This step installs the project dependencies defined in package.json
       - name: Install dependencies
         run: npm install
 
       # Step 3a: HTML Validation
+      # This step validates HTML files using the tidy tool
       - name: Validate HTML
-        run: |
-          sudo apt-get install tidy
-          tidy -q -e **/*.html || true
+        run: npm run validate:html
 
       # Step 3b: CSS Validation
+      # This step validates CSS files using stylelint
       - name: Validate CSS
-        run: |
-          npx stylelint "**/*.css" || true
+        run: npm run lint:css
 
       # Step 3c: JavaScript Linting
+      # This step lints JavaScript files using eslint
       - name: Lint JavaScript
-        run: |
-          npx eslint "**/*.js" || true
+        run: npm run lint:js
 
       # Step 4: Create automated PR for deployment
+      # This step creates a pull request for deployment using the create-pull-request action
       - name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v5
@@ -58,7 +61,8 @@ jobs:
           body: "This PR contains the latest updates for deployment."
           commit-message: "Deploy updates 🚀"
 
-      # Step 5: Enable and trigger auto-merge
+      # Step 5: Enable Auto-merge
+      # This step enables auto-merge for the created pull request using GitHub CLI
       - name: Enable Auto-merge
         if: steps.create-pr.outputs.pull-request-number
         run: |
