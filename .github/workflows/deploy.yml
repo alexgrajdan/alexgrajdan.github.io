@@ -10,42 +10,43 @@ on:
 
 jobs:
   validate-and-deploy:
-    # This job runs on Ubuntu latest version for optimal compatibility
     runs-on: ubuntu-latest
-    
-    # Only execute when triggered from a branch (not tag or direct commit)
-    # This prevents deployment issues on non-branch events
-    if: github.ref_type == 'branch'
-    
-    # GitHub token permissions required for:
-    # - contents:write -> Modify repository contents
-    # - pull-requests:write -> Create and manage PRs
     permissions:
       contents: write
       pull-requests: write
 
     steps:
-      # Step 1: Get the latest code from repository
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2a: HTML Validation
-      # Uses tidy to check HTML syntax and formatting
+      # Step 2a: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Step 2b: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 3a: HTML Validation
       - name: Validate HTML
         run: |
           sudo apt-get install tidy
           tidy -q -e **/*.html || true
 
-      # Step 2b: CSS Validation
-      # Uses stylelint to validate all CSS files in repository
+      # Step 3b: CSS Validation
       - name: Validate CSS
         run: |
-          for file in $(find . -name "*.css"); do
-            npx stylelint $file || true
-          done
+          npx stylelint "**/*.css" || true
 
-      # Step 3a: Create automated PR for deployment
-      # Uses peter-evans/create-pull-request action to create PR with changes
+      # Step 3c: JavaScript Linting
+      - name: Lint JavaScript
+        run: |
+          npx eslint "**/*.js" || true
+
+      # Step 4: Create automated PR for deployment
       - name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v5
@@ -57,12 +58,10 @@ jobs:
           body: "This PR contains the latest updates for deployment."
           commit-message: "Deploy updates 🚀"
 
-      # Step 3b: Enable and trigger auto-merge
-      # Uses GitHub CLI to enable auto-merge on the PR
-      # Merges PR automatically if all checks pass and manual approval is given
+      # Step 5: Enable and trigger auto-merge
       - name: Enable Auto-merge
         if: steps.create-pr.outputs.pull-request-number
         run: |
           gh pr merge --auto --merge "${{ steps.create-pr.outputs.pull-request-number }}"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"

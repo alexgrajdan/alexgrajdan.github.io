@@ -34,6 +34,7 @@ This project uses GitHub Actions for continuous integration and deployment. The 
 ### Automated Checks
 - HTML validation using `tidy`
 - CSS validation using `stylelint`
+- JavaScript linting using `eslint`
 - Commit signature verification
 
 ### Deployment
@@ -43,8 +44,10 @@ The website is automatically deployed to GitHub Pages when:
 
 ### Workflow Steps
 1. Code checkout
-2. HTML and CSS validation
-3. Deployment to GitHub Pages
+2. Set up Node.js environment
+3. Install dependencies
+4. HTML, CSS, and JavaScript validation
+5. Create and merge deployment PR
 
 To view the deployment status, check the "Actions" tab in the GitHub repository.
 
