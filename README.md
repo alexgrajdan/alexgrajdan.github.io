@@ -27,16 +27,6 @@ This is my portfolio website showcasing my skills, projects, and experience as a
 ```
 3. Open `index.html` in your preferred web browser to view the website.
 
-## Deployment
-
-This website is automatically deployed using [GitHub Pages](https://pages.github.com/).  
-Any changes pushed to the `master` branch are published live at:  
-[https://alexgrajdan.github.io/](https://alexgrajdan.github.io/)
-
-No additional CI/CD workflows or linters are currently configured for now.
-
-Note: Only signed commits following the [security policy](SECURITY.md) will trigger deployments.
-
 ## Usage Instructions
 - **Navigation**: Use the navigation menu to explore different sections of the website.
 - **Contact Form**: Fill out the contact form to send me a message. Ensure all fields are filled out and reCAPTCHA is completed.
