@@ -27,26 +27,13 @@ This is my portfolio website showcasing my skills, projects, and experience as a
 ```
 3. Open `index.html` in your preferred web browser to view the website.
 
-## CI/CD Pipeline
+## Deployment
 
-This project uses GitHub Actions for continuous integration and deployment. The pipeline is defined in [.github/workflows/deploy.yml](.github/workflows/deploy.yml) and includes:
+This website is automatically deployed using [GitHub Pages](https://pages.github.com/).  
+Any changes pushed to the `master` branch are published live at:  
+[https://alexgrajdan.github.io/](https://alexgrajdan.github.io/)
 
-### Automated Checks
-- HTML validation using `tidy`
-- CSS validation using `stylelint`
-- Commit signature verification
-
-### Deployment
-The website is automatically deployed to GitHub Pages when:
-- Changes are pushed to the `main` branch
-- Pull requests are merged into `main`
-
-### Workflow Steps
-1. Code checkout
-2. HTML and CSS validation
-3. Deployment to GitHub Pages
-
-To view the deployment status, check the "Actions" tab in the GitHub repository.
+No additional CI/CD workflows or linters are currently configured for now.
 
 Note: Only signed commits following the [security policy](SECURITY.md) will trigger deployments.
 
